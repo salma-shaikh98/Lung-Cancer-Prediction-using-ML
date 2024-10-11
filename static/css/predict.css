@@ -1,0 +1,232 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e1eaeebb;
+}
+
+header {
+    background-color: #a2b2c1;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex; /* Added */
+    align-items: center; /* Added */
+    justify-content: center;
+}
+header img {
+    height: 55px; /* Adjust height as needed */
+    margin-right: 10px; /* Add some space to the right of the logo */
+}
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+nav a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    color: #555;
+}
+
+.model-warning {
+    /* overflow: hidden; */
+    color: #F5636D; /* Warning text color */
+}
+
+.model-warning-text {
+    margin: 0;
+    padding: 5px 10px; /* Padding around the text content */
+    font-size: 25px;
+    font-family: cursive;
+    white-space: nowrap;
+    animation: moveLeft 50s linear infinite;
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+section{
+    margin-top: 20px;
+}
+/* editing */
+.instructions {
+    background: linear-gradient(to right, #bfcfd6bb, #bfcfd6bb); /* Gradient background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 390px; /* Adjust the width as needed */
+    font-family: Arial, sans-serif;
+    color: #3b3c51;
+    border: 1px solid #ccc; /* Subtle border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    position: fixed; /* Fixed positioning */
+    left: 100px; /* Adjust the distance from the left side */
+    top: 57%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    font-size: 18px;
+  }
+  
+  /* .instruction-section {
+    margin-bottom: 10px;
+  } */
+  
+  section h2 {
+    margin-top: 0; /* Remove margin on top of heading */
+    font-weight: bold;
+    color: #3b3c51;
+    text-transform: uppercase; /* Uppercase text */
+    margin-bottom: 10px; /* Add space below heading */
+    text-align: center;
+  }
+
+  .instruction-section h4 {
+    margin-top: 0; /* Remove margin on top of heading */
+    font-weight: bold;
+    color: #3b3c51;
+    text-transform: uppercase; /* Uppercase text */
+    margin-bottom: 15px; /* Add space below heading */
+  }
+
+  
+  .instruction-section p {
+    margin-bottom: 5px;
+    line-height: 1.2; /* Improved line height for readability */
+  }
+/* ending */
+
+
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    margin-bottom: 20px;
+}
+/* edited */
+/* edited end */
+.prediction-result{
+    display: none;
+    background: #bfcfd6bb; /* Gradient background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 390px; /* Adjust the width as needed */
+    font-family: Arial, sans-serif;
+    color: #022a27;
+    border: 1px solid #ccc; /* Subtle border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    position: fixed; /* Fixed positioning */
+    right: 100px; /* Adjust the distance from the right side */
+    top: 44%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    font-size: 18px;
+}
+
+.prediction-result h1{
+    margin-top: 0; /* Remove margin on top of heading */
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase text */
+    margin-bottom: 15px; /* Add space below heading */
+    text-align: center;
+}
+
+.prediction-result p{
+    margin-bottom: 10px;
+    line-height: 1.4; /* Improved line height for readability */
+    font-size: 18px;
+
+}
+
+.prediction-warning {
+    color: red;
+    text-align: center;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type="submit"] {
+    background-color: #709fcb;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #465e79;
+}
+
+footer {
+    margin-top: 20px;
+    background-color: #a2b2c1;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.prediction-chart{
+    display: none;
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 425px;
+    position: fixed;
+    right: 100px; /* Adjust the distance from the left side */
+    top: 68%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    border-radius: 10px ;
+}
+
+/* Override default SweetAlert styles for content */
+.swal2-content ul li {
+    text-align: left; /* Align list items to the left */
+    padding-left: 1em; /* Add padding to the left of list items */
+  }

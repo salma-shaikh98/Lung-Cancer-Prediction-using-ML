@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Prediction</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+
+    
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename ='images/logo.png') }}" alt="Logo">
+        <h1>Lung Cancer Prediction</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="/about">About</a>
+        <a href="/predict">Predict</a>
+        <a href="/dataset">Dataset</a>
+        <a href="/documentation">Documentation</a>
+    </nav>
+
+    <main>
+        <section id="project-description">
+            <h2>Project Description</h2>
+            <p>Welcome to my Lung Cancer Prediction project! I am dedicated to leveraging the power of machine learning to improve early detection of lung cancer. With advancements in technology, I believe that predictive modeling can play a crucial role in identifying individuals at risk and guiding personalized interventions.</p>
+            <p>Using state-of-the-art machine learning algorithms and a carefully curated dataset, our model has been trained to analyze various risk factors associated with lung cancer. I've optimized my models to achieve robust performance and reliability.</p>
+        </section>
+        <section class = "technology-stack">
+            <h2>Technology Stack</h2>
+            <p>My project leverages a robust technology stack to facilitate the development of a scalable and efficient lung cancer prediction system.</p>
+
+            <p><strong>Programming Language:</strong> Python serves as the primary programming language for my project. Python's versatility, ease of use, and extensive ecosystem of libraries make it an ideal choice for machine learning applications.</p>
+
+            <p><strong>Framework: </strong>I utilize Flask, a lightweight and flexible web framework for Python, to develop the backend of my application. Flask provides powerful features for routing, request handling, and template rendering, enabling us to build RESTful APIs and serve dynamic web pages efficiently.</p>
+
+            <p><strong>Machine Learning Library:</strong> The core of my predictive modeling relies on the scikit-learn library, a comprehensive machine learning toolkit for Python. Scikit-learn offers a wide range of algorithms for classification, regression, and clustering, along with utilities for data preprocessing, model evaluation, and feature selection. Leveraging scikit-learn's well-documented APIs and extensive functionality, I am able to develop and deploy sophisticated machine learning models with ease.</p>
+       
+        </section>
+        <section class="model-description">
+            <h2>Machine Learning Model</h2>
+
+            <p>Our lung cancer prediction system utilizes a diverse ensemble of machine learning algorithms to accurately assess the risk of lung cancer in individuals. Each model brings unique strengths and characteristics to the predictive process, allowing for robust and comprehensive risk assessment.</p>
+            <p><strong>1. Support Vector Machine (SVM):</strong>
+
+                SVM is a powerful supervised learning algorithm used for classification and regression tasks. It works by finding the hyperplane that best separates the data points into different classes.
+                In our implementation, SVM analyzes various features and risk factors associated with lung cancer, such as age, smoking history, and medical history, to classify individuals into high-risk and low-risk categories.
+                SVM's ability to handle high-dimensional data and nonlinear relationships makes it well-suited for our predictive modeling task.</p>
+            <p><strong>2. K-Nearest Neighbors (KNN):</strong>
+
+                KNN is a simple and intuitive algorithm used for both classification and regression tasks. It operates on the principle of similarity, where new data points are classified based on the majority vote of their nearest neighbors.
+                In our implementation, KNN assesses the risk of lung cancer by comparing the features of each individual to those of its nearest neighbors in the feature space.
+                KNN's flexibility and ease of implementation make it a valuable addition to our ensemble of models, particularly for capturing local patterns and relationships in the data.</p>
+            <p><strong>3. Decision Tree:</strong>
+
+                Decision Tree is a versatile and interpretable algorithm used for classification and regression tasks. It partitions the feature space into subsets based on the value of individual features, creating a tree-like structure that represents decision rules.
+                In our implementation, Decision Tree analyzes the risk factors associated with lung cancer to recursively partition the data into subsets with homogeneous risk profiles.
+                Decision Tree's transparency and interpretability make it valuable for understanding the underlying factors contributing to an individual's risk of lung cancer.</p>
+            <p><strong>4. Logistic Regression:</strong>
+
+                Logistic Regression is a widely used algorithm for binary classification tasks. It models the probability of the outcome variable as a logistic function of the predictor variables.
+                In our implementation, Logistic Regression analyzes the relationship between various risk factors and the likelihood of developing lung cancer, providing estimates of individual risk probabilities.
+                Logistic Regression's simplicity and efficiency make it an essential component of our predictive modeling pipeline, particularly for estimating individual risk probabilities and assessing model uncertainty.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Lung Cancer Prediction</p>
+    </footer>
+</body>
+</html>

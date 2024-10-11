@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lung Cancer Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/logo.png') }}"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
+
+    <!-- Include Chart.js library -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <img
+        src="{{ url_for('static', filename='images/logo.png') }}"
+        alt="Logo"
+      />
+      <h1>Lung Cancer Prediction</h1>
+    </header>
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="/about">About</a>
+      <a href="/predict">Predict</a>
+      <a href="/dataset">Dataset</a>
+      <a href="/documentation">Documentation</a>
+    </nav>
+
+    <div class="model-warning">
+      <p class="model-warning-text"><i class="fas fa-exclamation-triangle"></i>
+        Accuracy Alert: It's important to note that this prediction model is
+        based on statistical analysis and may not account for all factors
+        contributing to lung cancer risk. Please use the results as guidance and
+        consult a healthcare professional for a thorough evaluation.
+      </p>
+    </div>
+
+    <section>
+      <div class="instructions">
+        <h2><i class="fas fa-chalkboard"></i> INSTRUCTIONS:</h2>
+        <br>
+        <div class="instruction-section">
+          <h4><i class="fas fa-book"></i> Input Guidelines:</h4>
+          <p>For each input field, please provide a value between 1 and 8.</p>
+          <p><i class="fas fa-hand-point-right"></i> 1 to 3: Low</p>
+          <p><i class="fas fa-hand-point-right"></i> 4 to 5: Intermediate</p>
+          <p><i class="fas fa-hand-point-right"></i> 6 to 8: High</p>
+        </div>
+        <br>
+        <div class="instruction-section">
+          <h4><i class="fas fa-play-circle"></i> Model Selection:</h4>
+          <p><i class="fas fa-hand-point-right"></i> Choose a prediction model from the dropdown list.</p>
+        </div>
+        <br>
+        <div class="instruction-section">
+          <h4><i class="fas fa-check-circle"></i> Result Interpretation:</h4>
+          <p><i class="fas fa-hand-point-right"></i> The predicted result will be displayed with an alert message indicating the risk level.</p>
+        </div>
+      </div>
+      <div class="container">
+        <h2><i class="fas fa-user-lock"></i> Personal Information</h2>
+        <form
+          id="predictionForm"
+          action="{{ url_for('predict') }}"
+          method="post"
+        >
+          <label for="model">Choose Model For Prediction:</label><br />
+          <select id="model" name="model" required>
+            <option value="" selected disabled>Select Model</option>
+            <option value="logistic_regression">Logistic Regression</option>
+            <option value="svm">SVM</option>
+            <option value="knn">KNN</option>
+            <option value="decision_tree">Decision Tree</option></select
+          ><br />
+          <label for="pollution">Air Pollution:</label><br />
+          <input
+            type="number"
+            id="pollution"
+            name="air_pollution"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="alcohol">Alcohol Consumption:</label><br />
+          <input
+            type="number"
+            id="alcohol"
+            name="alcohol_consumption"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="allergy">Dust Allergy:</label><br />
+          <input
+            type="number"
+            id="allergy"
+            name="dust_allergy"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="hazard">Occupational Hazards:</label><br />
+          <input
+            type="number"
+            id="hazard"
+            name="occ_hazard"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="risk">Genetic Risk:</label><br />
+          <input
+            type="number"
+            id="risk"
+            name="genetic_risk"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="lung-disease">Chronic Lung Disease:</label><br />
+          <input
+            type="number"
+            id="lung-disease"
+            name="chronic_lung_disease"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="diet">Balanced Diet:</label><br />
+          <input
+            type="number"
+            id="diet"
+            name="balanced_diet"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="obes">Obesity:</label><br />
+          <input
+            type="number"
+            id="obes"
+            name="obesity"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="smoke">Smoking:</label><br />
+          <input
+            type="number"
+            id="smoke"
+            name="smoking"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="smoker">Passive Smoker:</label><br />
+          <input
+            type="number"
+            id="smoker"
+            name="passive_smoker"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="pain">Chest Pain:</label><br />
+          <input
+            type="number"
+            id="pain"
+            name="chest_pain"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="cough">Coughing of Blood:</label><br />
+          <input
+            type="number"
+            id="cough"
+            name="coughing_blood"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="weakness">Fatigue:</label><br />
+          <input
+            type="number"
+            id="weakness"
+            name="fatigue"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="weight">Weight Loss:</label><br />
+          <input
+            type="number"
+            id="weight"
+            name="weight_loss"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="breath">Shortness of Breath:</label><br />
+          <input
+            type="number"
+            id="breath"
+            name="short_breath"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="wheez">Wheezing:</label><br />
+          <input
+            type="number"
+            id="wheez"
+            name="wheezing"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="swollow">Swollowing difficulty:</label><br />
+          <input
+            type="number"
+            id="swollow"
+            name="swollow_difficulty"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="clubbed">Clubbing of Finger Nails:</label><br />
+          <input
+            type="number"
+            id="clubbed"
+            name="clubbed_finger"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="cold">Frequent Cold:</label><br />
+          <input
+            type="number"
+            id="cold"
+            name="frequent_cold"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="drycough">Dry Cough:</label><br />
+          <input
+            type="number"
+            id="drycough"
+            name="dry_cough"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <label for="snore">Snoring:</label><br />
+          <input
+            type="number"
+            id="snore"
+            name="snoring"
+            min="1"
+            max="8"
+            required
+          /><br />
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+      <div id="predictionResult" class="prediction-result">
+        <!-- Predicted output will be displayed here -->
+      </div>
+      <div id="predictionChart" class="prediction-chart">
+        <canvas id="myChart" style="width: 100%; max-width: 400px"></canvas>
+        <!-- Chart will be rendered here -->
+      </div>
+    </section>
+
+    <!-- Adding JavaScript to update the predicted output -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      var form = document.getElementById("predictionForm");
+      var predictionChart = document.getElementById("myChart").getContext("2d");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var selectedModel = document.getElementById("model").value;
+        var formData = new FormData(form);
+        formData.append("model", selectedModel);
+
+        fetch("/predict", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            var prediction = parseInt(data["prediction"]);
+            var message =
+              "<h1>Result</h1>" +
+              "<p>" +
+              getSpecificMessage(prediction) +
+              "</p>" +
+              '<div class="prediction-warning">';
+
+            // Determine the risk level and display appropriate message
+            if (prediction === 1) {
+              message +=
+                "<i class='fas fa-exclamation-triangle'></i> Alert: Low risk detected. Regular monitoring is advised.";
+            } else if (prediction === 2) {
+              message +=
+                "<i class='fas fa-exclamation-triangle'></i> Alert: Intermediate risk detected. Consultation with a healthcare professional is recommended.";
+            } else if (prediction === 0) {
+              message +=
+                "<i class='fas fa-exclamation-triangle'></i> Alert: High risk detected. Immediate medical attention is advised.";
+            } else {
+              message +=
+                "<i class='fas fa-exclamation-triangle'></i> Alert: Unable to determine risk level. Please consult a medical professional for further evaluation.";
+            }
+
+            message += "</div>";
+
+            var predictionResult = document.getElementById("predictionResult");
+            predictionResult.innerHTML = message;
+            predictionResult.style.display = "block";
+
+            // Render chart
+            renderChart(prediction);
+
+            // Show the prediction chart container
+            var predictionChart = document.querySelector(".prediction-chart");
+            predictionChart.style.display = "block";
+
+            form.reset();
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            var predictionResult = document.getElementById("predictionResult");
+            predictionResult.innerHTML =
+              "<p>Error: Unable to make prediction. Please try again later.</p>";
+            predictionResult.style.display = "block";
+          });
+      });
+
+      function renderChart(prediction) {
+        var labels = ["High", "Low", "Intermediate"];
+        var data = [0, 0, 0];
+        data[prediction] = 1; // Set the value corresponding to the predicted risk level to 1
+
+        var myChart = new Chart(predictionChart, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Predicted Risk Level",
+                data: data,
+                backgroundColor: [
+                  "rgba(200, 0, 0, 0.5)",
+                  "rgba(0, 121, 0, 0.5)",
+                  "rgba(255, 230, 0, 0.5)",
+                ],
+                borderColor: [
+                  "rgba(200, 0, 0, 1)",
+                  "rgba(0, 121, 0, 1)",
+                  "rgba(255, 230, 0, 1)",
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+
+        // Show SweetAlert after 5 seconds
+        setTimeout(function () {
+          Swal.fire({
+            title: "Do you want to know how to keep your lungs healthy?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+            cancelButtonText: "No",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Display the tips for keeping lungs healthy
+              showLungHealthTips();
+            }
+          });
+        }, 2000); // 5 seconds delay
+      }
+
+      function getSpecificMessage(prediction) {
+        switch (prediction) {
+          case 1:
+            return "Your risk level is low.";
+          case 2:
+            return "Your risk level is intermediate.";
+          case 0:
+            return "Your risk level is high.";
+          default:
+            return "Unable to determine risk level.";
+        }
+      }
+
+      // Function to show the tips for keeping lungs healthy
+      function showLungHealthTips() {
+        Swal.fire({
+          title: "Tips for Keeping Your Lungs Healthy",
+          html: "<ul><li>Avoid smoking and exposure to secondhand smoke.</li><br><li>Avoid exposure to air pollutants and irritants.</li><br><li>Exercise regularly to improve lung function.</li><br><li>Eat a healthy diet rich in fruits and vegetables.</li><br><li>Practice good hygiene to prevent respiratory infections.</li><br><li>Get regular check-ups and screenings for lung diseases.</li></ul>",
+          icon: "info",
+        });
+      }
+    </script>
+    <footer>
+      <p>&copy; 2024 Lung Cancer Prediction</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+
+        /* CSS styles for the home page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-color: #f3f8fbf0; */
+            background-color: #e1eaeebb;
+        }
+        header {
+            background-color: #a2b2c1;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex; /* Added */
+            align-items: center; /* Added */
+            justify-content: center;
+        }
+        header img {
+            height: 55px; /* Adjust height as needed */
+            margin-right: 10px; /* Add some space to the right of the logo */
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        nav a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #555;
+        }
+        section {
+            position: relative;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .image-container {
+            flex: 0 0 auto;
+            width: 500px; /* Adjust image width */
+            margin-right: 20px;
+            filter: invert(100%); 
+        }
+        .content {
+            flex: 1;
+            background-color: #bfcfd6bb;
+            color: #3b3c51;
+            border-radius: 10px;
+            padding: 20px;
+            height: 460px;
+            font-size: 20px;
+            display: flex; /* Added */
+            flex-direction: column; /* Added */
+            justify-content: center; /* Added */
+            align-items: center; /* Added */
+            text-align: justify; /* Added */
+        }
+        .content button {
+            background-color: #709fcb;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .content button:hover {
+            background-color: #465e79;
+        }
+        .info-tab {
+            flex: 1;
+            background-color: #bfcfd6bb;
+            color: #3b3c51;
+            border-radius: 10px;
+            padding: 20px;
+            height: 460px;
+            font-size: 20px;
+            display: flex; /* Added */
+            flex-direction: row; /* Added */
+            justify-content: center; /* Added */
+            align-items: center; /* Added */
+            text-align: center; /* Added */
+        }
+        .subsection {
+            flex: 1;
+            margin: 0 10px; /* Add margin to create space between subsections */
+        }
+        .subsection p button{
+            background-color: #709fcb;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+        }
+        .subsection p button:hover {
+            background-color: #465e79;
+        }
+        footer {
+            background-color: #a2b2c1;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Prediction</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+    
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename ='images/logo.png') }}" alt="Logo">
+        <h1>Lung Cancer Prediction</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="/about">About</a>
+        <a href="/predict">Predict</a>
+        <a href="/dataset">Dataset</a>
+        <a href="/documentation">Documentation</a>
+    </nav>
+    <section>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename ='images/lung.jpeg') }}" alt="Lung Cancer Image">
+        </div>
+        <div class="content">
+            <h2>Welcome to Lung Cancer Prediction</h2>
+            <p>This website provides a platform,where we harness the power of advanced technology to provide personalized risk assessments and early detection strategies for lung cancer. Lung cancer is one of the most prevalent and deadly forms of cancer worldwide, and early detection is key to improving survival rates.</p>
+            <p>Our advanced algorithms analyze factors such as smoking history, exposure to carcinogens, genetic predispositions, and other relevant medical data to provide personalized risk assessments.</p>
+            <p>Early detection and prevention are crucial in combating lung cancer, and our goal is to empower individuals to take proactive steps towards reducing their risk and improving their overall health and well-being.</p>
+            <button onclick="window.location.href = '/predict';">Start Prediction</button>
+        </div>
+    </section>
+    <section>
+        <div class="info-tab">
+            <div class="subsection">
+                <i class="fas fa-chart-line fa-2x"></i>
+
+                <h2>What does Predict do?</h2>
+                <p>Our platform employs state-of-the-art machine learning algorithms and data analytics techniques to analyze a wide range of factors that contribute to lung cancer risk. By inputting relevant medical information and lifestyle factors, users receive an assessment of their lung cancer risk profile.</p>
+            </div>
+            <div class="subsection">
+                <i class="fas fa-user-friends fa-2x"></i> <!-- Font Awesome icon -->
+                <h2>Who is Predict for?</h2>
+                <p>Predict is for clinicians, patients and their families.</p>
+                <strong>Patients should use it in consultation with a medical professional.</strong>
+            </div>
+            <div class="subsection">
+                <i class="fas fa-book fa-2x"></i> <!-- Font Awesome icon -->
+                <h2>Where can I find out more?</h2>
+                <p>To read more about Lung Cancer goto <button onclick='window.location.href="https://www.cdc.gov/cancer/lung/basic_info/index.htm";'>Start Reading</button></p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Lung Cancer Prediction</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+        /* CSS styles for the home page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-color: #f3f8fbf0; */
+            background-color: #e1eaeebb;
+        }
+        header {
+            background-color: #a2b2c1;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex; /* Added */
+            align-items: center; /* Added */
+            justify-content: center;
+        }
+        header img {
+            height: 55px; /* Adjust height as needed */
+            margin-right: 10px; /* Add some space to the right of the logo */
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        nav a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #555;
+        }
+
+/* CSS styles for the content sections */
+main {
+    padding: 20px;
+    max-width: 900px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    background-color: #bfcfd6bb;
+    color: #3b3c51;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#project-description,
+.technology-stack,
+.model-description {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.model-description p {
+    margin-bottom: 10px;
+}
+
+.model-description p:first-child {
+    margin-top: 0;
+}
+
+.model-description p:last-child {
+    margin-bottom: 0;
+}
+.model-description p:not(:last-child) {
+    margin-bottom: 20px;
+}
+footer {
+    background-color: #a2b2c1;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+}
